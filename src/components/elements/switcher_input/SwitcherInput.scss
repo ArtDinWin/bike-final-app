@@ -1,0 +1,86 @@
+@import "./../../../_configcss";
+
+/* start switcher  */
+.knobs,
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.switcher {
+    position: relative;
+    width: 74px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.switcher.r,
+.switcher.r .layer {
+    border-radius: 100px;
+}
+
+.switcher.b2 {
+    border-radius: 2px;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 100%;
+    background-color: #ffb3b3;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+/* switcher  */
+#switcher-1 .knobs:before {
+    content: "НЕТ";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 27px;
+    height: 27px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #f44336;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#switcher-1 .checkbox:checked+.knobs:before {
+    content: "ДА";
+    left: 42px;
+    background-color: $first-color-dark;
+}
+
+#switcher-1 .checkbox:checked~.layer {
+    background-color: #5fd7f3;
+}
+
+#switcher-1 .knobs,
+#switcher-1 .knobs:before,
+#switcher-1 .layer {
+    transition: 0.3s ease all;
+}
+
+/* end switcher  */

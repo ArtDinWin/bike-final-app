@@ -1,0 +1,35 @@
+@import "./../../../_configcss";
+
+.search-input {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fddf2c;
+    padding: 10px 5px 10px 15px;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    &__icon {
+        text-align: end;
+        height: 24px;
+        cursor: pointer;
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-left: 10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 20px 10px 10px;
+        background-color: #ffeb77;
+        border: none;
+        outline: none;
+        height: 28px;
+        width: 85%;
+    }
+}

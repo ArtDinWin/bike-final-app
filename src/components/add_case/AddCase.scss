@@ -1,0 +1,200 @@
+@import "./../../_configcss";
+
+.add-case {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 500;
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100% - 140px);
+
+  &__wrapper {
+    height: 100%;
+    padding: 30px 0 10px 0;
+  }
+
+  &__container {
+    overflow: auto;
+    height: 100%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    column-gap: 4vw;
+    justify-content: space-between;
+  }
+
+  &__image-wrapper {
+    max-width: 550px;
+    min-width: 165px;
+    height: auto;
+
+    & img {
+      max-height: 550px;
+    }
+  }
+
+  &__info {
+    &-wrapper {
+      flex: 1 1 auto;
+      max-width: 740px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-light;
+    width: 100%;
+    box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+
+    & button {
+      color: $color-light;
+    }
+
+    &:hover {
+      box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.2);
+    }
+
+    &-inputs {
+      display: flex;
+      width: 100%;
+      column-gap: 20px;
+
+      & .input__block-input {
+        flex: 1 1 auto;
+      }
+    }
+
+    &-form {
+      flex: 1 1 auto;
+      padding: 20px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & p {
+      padding: 18px 35px 0 35px;
+    }
+
+    & p:last-child {
+      color: $first-anticolor-dark;
+      padding: 0px 35px 10px 35px;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 20px;
+    }
+
+    &-info {
+      flex: 1 1 auto;
+      background-color: $color-light;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 15px;
+    }
+  }
+
+  & .add-case__block-inputs.checkbox-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  & .input__block-input:last-child {
+    padding-bottom: 0;
+  }
+
+  & .required-block {
+    color: $first-anticolor-dark;
+    margin-top: 10px;
+  }
+
+  &__officer-wrapper {
+    & label {
+      display: block;
+    }
+
+    & select {
+      width: 100%;
+      height: 40px;
+      margin-top: 5px;
+      border: 1px solid $first-color-dark;
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 2px;
+      background-color: $color-light;
+    }
+
+    & select[disabled] {
+      border: 1px solid $color-gray;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .add-case {
+    min-height: calc(100vh - 172px);
+    &__card-wrapper {
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+      }
+    
+      &__image-wrapper {
+        max-width: 450px;
+        order: 2;
+      }
+    
+      &__info-wrapper {
+        order: 1;
+      }
+  } 
+}
+
+@media (max-width: 576px) {
+  .add-case {
+    font-size: 12px;  
+    margin-top: 90px;
+    min-height: calc(100vh - 172px);
+    &__wrapper{
+          padding: 10px 0 10px 0;
+    }
+    &__block{
+      border-radius: 0;
+    }
+    &__block-buttons {
+        font-size: 14px;    
+    & span {
+          margin-right: 8px;
+        }
+      }
+    &__block-registration {
+      font-size: 12px;
+    }
+    &__block-inputs {
+      flex-direction: column;
+    }
+  } 
+
+}
+
+@media (max-height: 890px) {
+  .add-case {
+    margin-top: 90px;
+    min-height: calc(100vh - 152px);
+  }
+}
+
+

@@ -1,0 +1,33 @@
+@import "./../../_configcss";
+
+.footer {
+  width: 100%;
+  padding-top: 20px;
+      padding-bottom: 18px;
+  height: auto;
+  background-color: #fddf2c;  
+  line-height: 20px;
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+  &__block-right{
+    text-align: right;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer{
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &__wrapper {
+        align-items: flex-start;
+    
+      }
+  }
+}

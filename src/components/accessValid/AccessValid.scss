@@ -1,0 +1,89 @@
+@import "./../../_configcss";
+
+.access {
+  &__valid {
+    display: flex;
+    column-gap: 30px;      
+    @media (max-width: 576px) {
+      flex-direction: column;
+      column-gap: 0;
+      row-gap: 15px;
+      &-image {
+            order: 2;
+      }        
+      &-info {
+        order: 1;
+      }
+    }
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      background-color: $color-light;
+      width: 100%;
+      box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+
+      & button {
+        color: $color-light;
+      }
+
+      &:hover {
+        box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.2);
+      }
+
+      & p {
+        font-size: 20px;
+        color: $first-anticolor-dark;
+        padding: 15px 35px 10px 35px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        font-weight: 600;
+
+        & a {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &-info {
+      flex: 0 0 50%;
+    }
+    & .title-block{
+      @media (max-width: 768px) {
+        font-size: 22px;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .access {
+    font-size: 14px;
+    line-height: normal;
+
+    &__valid {
+      padding: 0 0 10px 0;
+
+      &-block {
+        & a {
+          font-size: 14px;
+          line-height: normal;
+        }
+
+        & p {
+          margin: 7px 0 7px;
+          font-size: 14px;
+          line-height: normal;
+          padding: 0px 15px 10px 15px;
+
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

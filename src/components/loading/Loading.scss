@@ -1,0 +1,190 @@
+@import "./../../_configcss";
+
+.loading {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 500;
+  padding-top: 25px;
+
+  &__image-wrap {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    height: 100%;
+    padding: 20px 0 10px 0;
+  }
+
+  &__container {
+    overflow: auto;
+    height: 100%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    column-gap: 50px;
+    justify-content: space-between;
+  }
+
+  &__image-wrapper {
+    max-width: 550px;
+    min-width: 200px;
+    height: auto;
+
+    & img {
+      max-height: 550px;
+    }
+  }
+
+  &__info {
+    &-wrapper {
+      flex: 1 1 auto;
+      max-width: 740px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-light;
+    width: 100%;
+    box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+
+    & h3 {
+      text-align: center;
+      color: $first-color-dark;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: $first-color-light;
+    }
+  }
+}
+
+/* START Loading style ---------------------- */
+
+.loading__text-wrap {
+  height: 20px;
+  margin: 10px 0 0 0;
+}
+
+.letter {
+  float: left;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  padding-right: 2px;
+  color: $first-color-dark;
+}
+
+.load-6 {
+  margin: 0 auto;
+  width: 130px;
+}
+
+.load-6 .letter {
+  animation-name: loadingF;
+  animation-duration: 1.9s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+
+.l-1 {
+  animation-delay: 0.48s;
+}
+
+.l-2 {
+  animation-delay: 0.6s;
+}
+
+.l-3 {
+  animation-delay: 0.72s;
+}
+
+.l-4 {
+  animation-delay: 0.84s;
+}
+
+.l-5 {
+  animation-delay: 0.96s;
+}
+
+.l-6 {
+  animation-delay: 1.08s;
+}
+
+.l-7 {
+  animation-delay: 1.2s;
+}
+
+.l-8 {
+  animation-delay: 1.32s;
+}
+
+.l-9 {
+  animation-delay: 1.44s;
+}
+
+.l-10 {
+  animation-delay: 1.56s;
+}
+
+.l-11 {
+  animation-delay: 1.68s;
+}
+
+@keyframes loadingF {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* END Loading style ---------------------- */
+
+@media (max-width: 768px) {
+  .loading__card-wrapper {
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+  }
+
+  .loading__image-wrapper {
+    max-width: 450px;
+    order: 2;
+  }
+
+  .loading__info-wrapper {
+    order: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .loading {
+    font-size: 12px;
+  }
+
+  .loading__block h3 {
+    font-size: 20px;
+  }
+
+  .loading__block-buttons {
+    font-size: 14px;
+
+    & span {
+      margin-right: 8px;
+    }
+  }
+}

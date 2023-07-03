@@ -1,0 +1,126 @@
+@import "./../../../_configcss";
+
+/* my select */
+.label__type {
+    & span {
+        color: $first-anticolor-dark;
+    }
+}
+
+.select-div {
+    width: 100%;
+    background-color: transparent;
+    padding: 7px 9px 7px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid $first-color-dark;
+    padding: 10px;
+    position: relative;
+    margin-top: 5px;
+    &:hover {
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+    }
+
+    &__mark {
+        cursor: pointer;
+        right: 8px;
+        top: 8px;
+        transform: rotate(0deg);
+        position: absolute;
+    }
+
+    &__wrapper {
+        position: relative;
+        min-width: 200px;
+        margin-bottom: 10px;
+
+        & .message {
+            font-size: 14px;
+            visibility: hidden;
+            display: block;
+        }
+
+        .message.visible {
+            font-size: 14px;
+            visibility: visible;
+            display: block;
+        }
+
+        .message.display-none {
+            display: none;
+        }
+
+        &.error input {
+            border: 1px solid red;
+        }
+
+        &.disabled {
+            pointer-events: none;
+        }
+
+        &.open {
+            & .select-div__mark svg {
+                transform: rotate(180deg);
+            }
+
+            & .select-div__option-wrap {
+                display: block;
+            }
+        }
+    }
+
+    &__option-wrap {
+        display: none;
+        position: absolute;
+        z-index: 3;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $color-light;
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    &__option {
+        padding: 7px 9px 7px 8px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $first-color;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid gray;
+        }
+
+        &-sport {
+            fill: $first-color-dark;
+            margin-right: 5px;
+            position: relative;
+            top: 3px;
+        }
+
+        &-general {
+            fill: $first-color-dark;
+            margin-right: 5px;
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+.disabled .select-div {
+    border: 1px solid $color-gray;
+}
+
+.select-div__option .select-div__mark {
+    display: none;
+}
+
+.message.visible {
+    font-size: 14px;
+    visibility: visible;
+    color: $first-anticolor-dark;
+
+    &.normal {
+        color: $first-color-dark;
+    }
+}

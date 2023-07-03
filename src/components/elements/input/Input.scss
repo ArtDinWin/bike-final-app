@@ -1,0 +1,92 @@
+@import "./../../../_configcss";
+
+.input {
+    &__block {
+        &-input {
+            padding-bottom: 10px;
+            position: relative;
+
+            & span {
+                color: $first-anticolor-dark;
+            }
+
+            & input {
+                display: block;
+                background-color: transparent;
+                font-weight: inherit;
+                border: 1px solid $first-color-dark;
+                padding: 10px;
+                border-radius: 5px;
+                width: 100%;
+                margin-top: 5px;
+
+                &.password {
+                    padding: 10px 30px 10px 10px;
+                }
+
+                &:focus {
+                    border-color: $first-color-dark;
+                    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                }
+
+                &:focus-visible {
+                    border-color: $first-color-dark;
+                    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                }
+
+                &:hover {
+                    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+                }
+
+                &[disabled] {
+                    color: $color-dark;
+                    border: 1px solid $first-color-dark;
+                    box-shadow: none;
+                }
+            }
+
+            & .message {
+                font-size: 14px;
+                visibility: hidden;
+                display: block;
+            }
+
+            .message.visible {
+                font-size: 14px;
+                visibility: visible;
+                display: block;
+            }
+
+            .message.display-none {
+                display: none;
+            }
+
+            &.error input {
+                border: 1px solid red;
+            }
+
+            & .icon-password {
+                position: absolute;
+                display: inline-block;
+                width: 30px;
+                cursor: pointer;
+                top: 35px;
+                right: -1px;
+
+                @media (max-width: 768px) {
+                    top: 33px;
+                }
+            }
+        }
+
+        & span {
+            color: $first-anticolor-dark;
+        }
+    }
+}

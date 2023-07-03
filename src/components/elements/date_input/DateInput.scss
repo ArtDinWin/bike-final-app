@@ -1,0 +1,39 @@
+@import "./../../../_configcss";
+
+/* Дата */
+
+.react-datepicker__input-container svg.react-datepicker__calendar-icon {
+    fill: $first-color-dark;
+    width: 25px;
+    height: 46px;
+    padding: 0 0 0 9px;
+    position: absolute;   
+}
+
+.react-datepicker__view-calendar-icon input.data__input {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    min-width: 150px;
+    width: 100%;
+    background-color: transparent;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid $first-color-dark;
+    padding: 10px 10px 10px 30px;
+    margin-top: 5px;
+}
+
+.data__input:hover{
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+}
+.react-datepicker__view-calendar-icon input.data__input[disabled] {
+    border: 1px solid $color-gray;
+}
+.data__input[disabled]:hover {
+    box-shadow: none;
+    cursor:auto;
+}
+
+/* Дата */

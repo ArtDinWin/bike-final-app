@@ -1,0 +1,173 @@
+@import "./../../_configcss";
+
+.officers {
+  font-size: 20px;
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100% - 140px);
+
+  & h3 {
+    text-align: center;
+    color: $first-color-dark;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__wrapper {
+    height: 100%;
+    padding: 30px 0;
+  }
+
+  &__container {
+    overflow: auto;
+    height: 100%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__status {
+    padding: 3px 10px;
+    background-color: $color-gray;
+    color: $color-light;
+    border-radius: 50px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &.no-approved {
+      background-color: $first-anticolor-dark;
+    }
+
+    &.approved {
+      background-color: $first-color-dark;
+    }
+  }
+
+  &__type {
+    width: 24px;
+    height: auto;
+    vertical-align: bottom;
+    fill: $first-color-dark;
+  }
+
+  &__color {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    border-radius: 50px;
+  }
+
+  &__status-items {
+    white-space: nowrap;
+  }
+
+  &__status-info {
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    margin-top: 4px;
+
+    & .officers__status {
+      margin-right: 15px;
+    }
+  }
+
+  &__info {
+    flex: 0 0 500px;
+
+    &-wrapper {
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__image-wrapper {
+    width: 150px;
+    height: 150px;
+    & img {
+      height: 100%;
+      max-height: 150px;
+    }
+  }
+
+  &__selected-wrap {
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    & input {
+      margin-right: 10px;
+    }
+
+    & button {
+      margin-right: 10px;
+      color: $color-light;
+    }
+
+    & label {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .officers {
+    font-size: 14px;
+    &__info {
+      flex: 1 1 100%;
+
+      &-wrapper {
+        column-gap: 20px;
+      }
+    }
+    & h3{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .officers {
+    & h3 {
+      line-height: 30px;
+    }
+
+    &__status-info {
+      row-gap: 10px;
+      margin-top: 4px;
+    }
+
+    &__info {
+      flex: 1 1 100%;
+      order: 2;
+
+      &-wrapper {
+        flex-wrap: wrap;
+        row-gap: 20px;
+      }
+    }
+
+    &__image-wrapper {
+      order: 1;
+    }
+  &__wrapper {
+    padding: 15px 0;
+  }
+
+  }
+}
+
+@media (max-height: 890px),
+(max-width: 576px) {
+  .officers {
+    margin-top: 90px;
+    min-height: calc(100vh - 175px);
+  }
+}

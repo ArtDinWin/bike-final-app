@@ -1,0 +1,34 @@
+const KEY_LOCAL_STORAGE = "bike-final-app";
+const URL_API = "https://sf-final-project-be.herokuapp.com/api";
+const URL_AUTH = URL_API + "/auth/";
+const URL_SIGN_UP = URL_API + "/auth/sign_up";
+const URL_SIGN_IN = URL_API + "/auth/sign_in";
+const URL_REPORT = URL_API + "/public/report";
+const URL_GET_CASE = URL_API + "/cases/";
+const URL_GET_CASES = URL_GET_CASE;
+const URL_ADD_CASE = URL_GET_CASE;
+const URL_DELETE_CASE = URL_GET_CASE;
+const URL_UPDATE_CASE = URL_GET_CASE;
+const URL_ADD_OFFICER = URL_API + "/officers/";
+const URL_DELETE_OFFICER = URL_ADD_OFFICER;
+const URL_GET_OFFICER = URL_ADD_OFFICER;
+const URL_GET_OFFICERS = URL_ADD_OFFICER;
+const URL_UPDATE_OFFICER = URL_ADD_OFFICER;
+
+export {
+  KEY_LOCAL_STORAGE,
+  URL_SIGN_UP,
+  URL_ADD_OFFICER,
+  URL_ADD_CASE,
+  URL_REPORT,
+  URL_AUTH,
+  URL_DELETE_CASE,
+  URL_DELETE_OFFICER,
+  URL_GET_CASE,
+  URL_GET_OFFICER,
+  URL_GET_OFFICERS,
+  URL_GET_CASES,
+  URL_SIGN_IN,
+  URL_UPDATE_CASE,
+  URL_UPDATE_OFFICER,
+};

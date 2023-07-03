@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+$color-dark: #000000;
+$color-light: #ffffff;
+$first-color-dark: #007bb7;
+$second-color-dark: #00537c;
+$first-color:#cceeff;
+$first-anticolor-dark:#F44336;
+$second-anticolor-dark: #9e2f27;
+$other-anticolor-dark:#06cc00;
+$first-color-light: #fddf2c;
+$second-color-light: #bfa300;
+$color-gray: #5E6C84;
+$color-gray-middle: #cecece;
+$list-bg-color: #EBECF0;
+
+$color-font: $color-dark;
+$color-link: $first-color-dark;
+$color-link-hover: $color-dark;
+$background-color-btn: $first-color-dark;
+$background-color-btn-hover: $second-color-dark;
+$background-btn-light: $first-color-light;
+$color-btn-light: $first-color-dark;
+$color-btn: $first-color-light;
+
+@mixin font-main($color) {
+    color: $color;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+

@@ -1,0 +1,409 @@
+@import "./../../_configcss";
+
+.case-item {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 500;
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100% - 140px);
+
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+
+    & svg {
+      height: 30px;
+      width: 30px;
+      fill: $first-color-dark;
+    }
+  }
+
+  &__wrapper {
+    height: 100%;
+    padding: 20px 0 10px 0;
+  }
+
+  &__container {
+    overflow: auto;
+    height: 100%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    position: relative;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    column-gap: 25px;
+    justify-content: space-between;
+  }
+
+  &__image-wrapper {
+    max-width: 550px;
+    min-width: 165px;
+    height: auto;
+
+    & img {
+      max-height: 550px;
+    }
+  }
+
+  &__info {
+    &-wrapper {
+      flex: 1 1 auto;
+      max-width: 740px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-light;
+    width: 100%;
+    box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+
+    & button {
+      color: $color-light;
+    }
+
+    &:hover {
+      box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.2);
+    }
+
+    &-inputs {
+      display: flex;
+      width: 100%;
+      column-gap: 20px;
+      min-height: 93px;
+
+      &.__mha {
+        min-height: auto;
+      }
+
+      & .input__block-input {
+        flex: 1 1 auto;
+      }
+    }
+
+    &-form {
+      flex: 1 1 auto;
+      padding: 20px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & p {
+      // flex: 1 1 auto;
+      padding: 18px 35px 0 35px;
+    }
+
+    & p:last-child {
+      color: $first-anticolor-dark;
+      padding: 0px 35px 10px 35px;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 20px;
+      margin-top: 24px;
+      margin-bottom: 20px;
+    }
+
+    &-info {
+      flex: 1 1 auto;
+      background-color: $color-light;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 15px;
+    }
+  }
+
+  & .case-item__block-inputs.checkbox-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    min-height: auto;
+  }
+
+  & .input__block-input:last-child {
+    padding-bottom: 0;
+  }
+
+  & .required-block {
+    color: $first-anticolor-dark;
+    margin-top: 10px;
+  }
+
+  &__date {
+    font-weight: 800;
+
+    &-wrapper {
+      &:not(:last-child) {
+        border-right: 1px solid $first-color-dark;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  &__info-wrap {
+    & h3 {
+      text-align: center;
+      color: #007bb7;
+      font-size: 30px;
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+
+    & .case-item__image-wrapper {
+      margin: 0 auto;
+    }
+  }
+
+  &__icon-edit {
+    cursor: pointer;
+
+    &.disabled {
+      pointer-events: none;
+      fill: $color-gray;
+    }
+  }
+
+  & .input__block-input.error input.normal {
+    border: 1px solid $first-color-dark;
+  }
+
+  & .input__block-input.error input.normal[disabled] {
+    border: 1px solid $color-gray;
+  }
+
+  & .input__block-input.error span.normal {
+    color: $first-color-dark;
+  }
+
+  & .label-name {
+    font-size: 14px;
+  }
+
+  &__status-wrapper {
+    & label {
+      display: block;
+    }
+
+    & select {
+      height: 40px;
+      margin-top: 5px;
+      border: 1px solid $color-gray;
+      border-radius: 50px;
+      padding-left: 5px;
+      padding-right: 2px;
+      background-color: $color-light;
+
+      &.new {
+        background-color: $first-anticolor-dark;
+        color: $color-light;
+        border: none;
+      }
+
+      &.in_progress {
+        background-color: $first-color-dark;
+        color: $color-light;
+        border: none;
+      }
+
+      &.done {
+        background-color: $other-anticolor-dark;
+        color: $color-light;
+        border: none;
+      }
+    }
+  }
+
+  &__officer-wrapper {
+    & label {
+      display: block;
+    }
+
+    & select {
+      width: 100%;
+      height: 40px;
+      margin-top: 5px;
+      border: 1px solid $first-color-dark;
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 2px;
+      background-color: $color-light;
+    }
+
+    & select[disabled] {
+      border: 1px solid $color-gray;
+    }
+  }
+
+  & .data-input.display-none {
+    visibility: hidden;
+  }
+
+  & .data-input.visible {
+    visibility: visible;
+    // color: $first-color-dark;
+  }
+
+  &-description {
+    margin-bottom: 5px;
+  }
+
+  &-resolution {
+    margin-bottom: 5px;
+  }
+}
+
+/* Дата */
+.case-item .react-datepicker__input-container svg.react-datepicker__calendar-icon {
+  fill: #007bb7;
+  width: 23px;
+  height: 41px;
+  padding: 0 0 0 9px;
+}
+
+/* Дата */
+
+.input__block-input.input__wrap {
+  // min-width: 270px;
+  // max-width: 330px;
+  min-width: auto;
+  max-width: none;
+}
+
+.input__block-input textarea {
+  width: 100%;
+  border: 1px solid $first-color-dark;
+  padding: 10px;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+.input__block-input textarea[disabled] {
+  width: 100%;
+  border: 1px solid $color-gray;
+  padding: 10px;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+@media (max-width: 768px) {
+  .case-item {
+    &__card-wrapper {
+      flex-direction: column;
+      row-gap: 30px;
+      align-items: center;
+    }
+  
+    &__image-wrapper {
+      max-width: 450px;
+      order: 2;
+    }
+  
+    &__info-wrapper {
+      order: 1;
+    }}
+}
+
+@media (max-width: 576px) {
+  .case-item {
+    font-size: 12px;
+    &__block-buttons {
+        font-size: 14px;
+    
+        & span {
+          margin-right: 8px;
+        }
+      }
+  } 
+}
+
+@media (max-width: 768px) {
+  .case-item {
+    min-height: calc(100vh - 172px);
+
+    &__back {
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .case-item {
+    margin-top: 90px;
+    min-height: calc(100vh - 172px);
+
+    &__block-inputs {
+      flex-direction: column;
+    }
+
+    &__status-wrapper {
+      margin-bottom: 10px;
+    }
+
+    &__info-wrapper {
+      max-width: none;
+      width: 100%;
+    }
+
+    & .select-div__wrapper {
+      margin-top: 15px;
+    }
+
+    &__date-wrapper:not(:last-child) {
+      border: none;
+      padding-right: 0;
+      margin-bottom: 15px;
+    }
+    &__block-registration {
+      font-size: 12px;
+    }
+            
+    &__info-wrap h3 {
+      font-size: 20px;
+      line-height: normal;
+    }
+  }
+
+  & .__mha {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 370px) {
+  .case-item {
+    & .__mha {
+      flex-direction: column;
+    }
+
+    &__block-buttons {
+      column-gap: 0;
+      row-gap: 15px;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-height: 890px) {
+  .case-item {
+    margin-top: 90px;
+    min-height: calc(100vh - 152px);
+  }
+}

@@ -1,0 +1,236 @@
+@import "./../../_configcss";
+
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: $first-color-light;
+  z-index: 99;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+
+  &__wrapper {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 260px;
+    height: 70px;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    &-item {
+      display: inline-block;
+
+      &:not(:nth-last-child(1)) {
+        border-right: 1px solid $color-link;
+        padding-right: 10px;
+      }
+
+      &:nth-last-child(2) {
+        border-right: none;
+        padding-right: 10px;
+      }
+
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /* burger-btn */
+  &__burger-btn {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &__burger-btn span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    left: 5px;
+    background-color: $background-color-btn;
+    transition: background-color 0.3s, opacity 0.3s, transform 0.5s;
+    will-change: transform;
+    border-radius: 25%;
+  }
+
+  &__burger-btn:hover span {
+    background-color: $background-color-btn-hover;
+  }
+
+  &__burger-btn span:nth-child(1) {
+    transform: translateY(-10px);
+  }
+
+  &__burger-btn span:nth-child(3) {
+    transform: translateY(10px);
+  }
+}
+
+/* Крестик */
+.header.open .header__burger-btn span {
+  background-color: $background-color-btn;
+}
+
+.header.open .header__burger-btn span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.header.open .header__burger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__burger-btn span:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.header.open .header__menu {
+  right: 0;
+  box-shadow: none;
+}
+
+.header__account-avatar {
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: 100%;
+  z-index: 1;
+  background-color: $first-color-dark;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.avatar .header__account-avatar {
+  display: block;
+  cursor: pointer;
+}
+
+.header__log-out {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  @media (max-width: 576px) {
+    margin-left: 15px;
+  }
+}
+
+.log-out {
+  display: none;
+  z-index: 1;
+}
+
+.avatar .log-out {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .header.open .header__menu {
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.6);
+  }
+
+  .header__burger-btn {
+    display: block;
+  }
+
+  .header__account-avatar {
+    display: block;
+    pointer-events: auto;
+  }
+
+  .header__nav-item.avatar {
+    display: none;
+  }
+
+  .log-out {
+    display: block;
+  }
+
+  .header__menu {
+    position: absolute;
+    right: -270px;
+    top: 0;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    background-color: $first-color-light;
+    padding: 75px 20px 20px 20px;
+    transition: all 0.4s;
+  }
+
+  .header__nav,
+  .header__login {
+    width: 100%;
+  }
+
+  .header__nav-list,
+  .header__login-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header__nav-item:not(:last-child) {
+    border: none;
+    padding: 0;
+  }
+
+  .header__nav-item:not(:first-child) {
+    margin: 0;
+  }
+
+  .header__menu a {
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+  }
+
+  .header__nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__menu a:not(.header__nav-button):hover {
+    transition: background-color 0.3s, color 0.3s;
+    background-color: $background-color-btn;
+    color: $first-color-light;
+  }
+
+  .header__nav-button {
+    display: inline-block;
+  }
+}
+
+@media (max-height: 890px),
+(max-width: 576px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

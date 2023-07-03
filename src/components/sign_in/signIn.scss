@@ -1,0 +1,163 @@
+@import "./../../_configcss";
+
+.sign-in {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 500;
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100% - 140px);
+
+  &__wrapper {
+    height: 100%;
+    padding: 30px 0;
+  }
+
+  &__container {
+    overflow: auto;
+    height: 100%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__card-wrapper {
+    display: flex;
+    column-gap: 50px;
+    justify-content: space-between;
+  }
+
+  &__image-wrapper {
+    max-width: 550px;
+    min-width: 200px;
+    height: auto;
+
+    & img {
+      max-height: 550px;
+    }
+  }
+
+  &__info {
+    &-wrapper {
+      flex: 1 1 auto;
+      max-width: 445px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-light;
+    width: 100%;
+    box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+
+    & button {
+      color: $color-light;
+    }
+
+    &:hover {
+      box-shadow: 4px 6px 11px rgba(0, 0, 0, 0.2);
+    }
+
+    &-form {
+      flex: 1 1 auto;
+      padding: 20px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & p {
+      // flex: 1 1 auto;
+      padding: 18px 35px 0 35px;
+    }
+
+    & p:last-child {
+      color: $first-anticolor-dark;
+      padding: 0px 35px 10px 35px;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    &-info {
+      flex: 1 1 auto;
+      background-color: $color-light;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 15px;
+    }
+  }
+
+  & p.message-info {
+    padding-top: 20px;
+    padding-bottom: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sign-in {
+    min-height: calc(100vh - 172px);
+    &__card-wrapper {
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+      }
+    
+      &__image-wrapper {
+        max-width: 450px;
+        order: 2;
+      }
+    
+      &__info-wrapper {
+        order: 1;
+      }
+  }
+ 
+}
+
+@media (max-width: 576px) {
+  .sign-in {
+    font-size: 12px;
+    margin-top: 90px;
+    min-height: calc(100vh - 172px);
+
+    &__block p {
+      padding: 18px 15px 0 15px;
+    }
+
+    &__block-form {
+      padding: 15px 15px;
+    }
+
+    &__wrapper {
+      padding: 15px 0;
+    }
+
+    &__block-registration {
+      font-size: 12px;
+    }
+
+    &__block-buttons {
+      font-size: 14px;
+
+      & span {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+@media (max-height: 890px) {
+  .sign-in {
+    margin-top: 90px;
+    min-height: calc(100vh - 152px);
+  }
+}
+

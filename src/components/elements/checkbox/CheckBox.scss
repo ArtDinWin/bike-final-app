@@ -1,0 +1,97 @@
+@import "./../../../_configcss";
+
+/* start checkbox  */
+
+.checkbox-check {
+    display: block;
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    & input[type="checkbox"] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+    
+        & span {
+            display: inline-block;
+            position: relative;
+            padding: 0 0 0 35px;
+            line-height: normal;
+            color: $color-gray;
+        }
+    
+        & input[type="checkbox"]:checked+span {
+            color: $first-color-dark;
+        }
+    
+        & span:before {
+            content: "";
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: background 0.3s ease;
+            border: 2px solid $color-gray;
+            background-color: $list-bg-color;
+        }
+    
+        & span:after {
+            content: "";
+            opacity: 0;
+            position: absolute;
+            -webkit-transition: opacity 0.2s ease;
+            -moz-transition: opacity 0.2s ease;
+            -o-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+        }
+    
+        /* Checked */
+        & input[type="checkbox"]:checked+span:before {
+            border: 2px solid $first-color-dark;
+            background-color: $first-color-light;
+        }
+    
+        & input[type="checkbox"]:checked+span:after {
+            content: "✔";
+            left: 2px;
+            top: 1px;
+            opacity: 1;
+            font-size: 22px;
+            line-height: 22px;
+            -webkit-transition: opacity 0.2s ease;
+            -moz-transition: opacity 0.2s ease;
+            -o-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+        }
+    
+        /* Hover */
+        & span:hover:before {
+            filter: brightness(90%);
+        }
+    
+        /* Active */
+        & span:active:before {
+            filter: brightness(80%);
+        }
+    
+        /* Disabled */
+        & input[type="checkbox"]:disabled+span {
+            color: #666;
+            cursor: default;
+        }
+    
+        & input[type="checkbox"]:disabled+span:before {
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+    
+        /* end checkbox  */
+}
+
