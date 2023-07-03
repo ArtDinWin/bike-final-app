@@ -144,6 +144,8 @@ function Case() {
       return true;
     } else {
       return !noEdit &&
+      editCaseData.ownerFullName === caseItem.ownerFullName &&
+      editCaseData.licenseNumber === caseItem.licenseNumber &&
         editCaseData.status === caseItem.status &&
         editCaseData.officer === caseItem.officer &&
         editCaseData.type === caseItem.type &&
