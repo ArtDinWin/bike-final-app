@@ -1,4 +1,4 @@
-### Специализация «Frontend-разработчик» 2023год
+### Специализация «Frontend-разработчик» 2023 год
 # Финальный проект
 ## Сервис проката: «Поиск пропавших велосипедов»
 
@@ -21,9 +21,9 @@
 7. Наличие кнопки Выйти
 
 ### Технологии:
-HTML5, CSS3, SCSS
-JavaScript
-React18/Redux
+- HTML5, CSS3, SCSS
+- JavaScript
+- React18/Redux
 
 #### Посмотреть можно здесь - https://artdinwin.github.io/bike-final-app/
 
