@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bike-final-app/static/css/main.499d2701.css",
-    "main.js": "/bike-final-app/static/js/main.af4ff7b3.js",
+    "main.js": "/bike-final-app/static/js/main.b587259d.js",
     "static/media/cases-img.png": "/bike-final-app/static/media/cases-img.c186b0fdabfe61c30ae6.png",
     "static/media/main-img2.jpg": "/bike-final-app/static/media/main-img2.63464aee27ec87ce1411.jpg",
     "static/media/case-detail.png": "/bike-final-app/static/media/case-detail.6ca6ffe50bf8713310a2.png",
@@ -37,10 +37,10 @@
     "static/media/no-photo.jpg": "/bike-final-app/static/media/no-photo.86360dd5959a97599c20.jpg",
     "index.html": "/bike-final-app/index.html",
     "main.499d2701.css.map": "/bike-final-app/static/css/main.499d2701.css.map",
-    "main.af4ff7b3.js.map": "/bike-final-app/static/js/main.af4ff7b3.js.map"
+    "main.b587259d.js.map": "/bike-final-app/static/js/main.b587259d.js.map"
   },
   "entrypoints": [
     "static/css/main.499d2701.css",
-    "static/js/main.af4ff7b3.js"
+    "static/js/main.b587259d.js"
   ]
 }
