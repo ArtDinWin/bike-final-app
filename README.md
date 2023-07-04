@@ -28,8 +28,8 @@
 #### Посмотреть можно здесь - https://artdinwin.github.io/bike-final-app/
 
 Можно воспользоваться тестовой регистрацией для входа на сайт, используя следующие данные:
-email: **test@testmail1.ru**
-пароль: **1234qwer**
+- email: **test@testmail1.ru**
+- пароль: **1234qwer**
 
 
 # Getting Started with Create React App
