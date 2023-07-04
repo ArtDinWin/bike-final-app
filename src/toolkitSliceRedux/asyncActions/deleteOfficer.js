@@ -25,49 +25,60 @@ export const deleteOfficer = (id) => {
       data: {},
       headers: headers,
     };
-
-    axios(optionsDeleteOfficer)
-      .then((response) => {
+if(id === "64a3bf392ede08beb1f96642") {
+  dispatch(
+    addModalMessage({
+      type: "deleteOfficer",
+      status: "error",
+      text: `Данный сотрудник является Администратором сайта. Его удалить нельзя`,
+    })
+  );
+  dispatch(noLoading());
+} else {
+  axios(optionsDeleteOfficer)
+  .then((response) => {
+    dispatch(
+      addModalMessage({
+        type: "deleteOfficer",
+        status: "successful",
+        text: `Сотрудник id=${id} удален успешно!`,
+      })
+    );
+    dispatch(noLoading());
+  })
+  .catch((error) => {
+    if (error && error.response) {
+      // Ошибка сервера
+      if (error.response.data.message) {
         dispatch(
           addModalMessage({
             type: "deleteOfficer",
-            status: "successful",
-            text: `Сотрудник id=${id} удален успешно!`,
+            status: "error",
+            text: `Ошибка сервера: ${error.response.status} - ${error.response.data.message}`,
           })
         );
-        dispatch(noLoading());
-      })
-      .catch((error) => {
-        if (error && error.response) {
-          // Ошибка сервера
-          if (error.response.data.message) {
-            dispatch(
-              addModalMessage({
-                type: "deleteOfficer",
-                status: "error",
-                text: `Ошибка сервера: ${error.response.status} - ${error.response.data.message}`,
-              })
-            );
-          } else {
-            dispatch(
-              addModalMessage({
-                type: "deleteOfficer",
-                status: "error",
-                text: `Ошибка сервера: ${error.message}`,
-              })
-            );
-          }
-        } else if (error && error.request) {
-          // Ошибка запроса
-          dispatch(
-            addModalMessage({
-              type: "deleteOfficer",
-              status: "error",
-              text: `Ошибка запроса: ${error.message}`,
-            })
-          );
-        }
-        dispatch(noLoading());
-      });
+      } else {
+        dispatch(
+          addModalMessage({
+            type: "deleteOfficer",
+            status: "error",
+            text: `Ошибка сервера: ${error.message}`,
+          })
+        );
+      }
+    } else if (error && error.request) {
+      // Ошибка запроса
+      dispatch(
+        addModalMessage({
+          type: "deleteOfficer",
+          status: "error",
+          text: `Ошибка запроса: ${error.message}`,
+        })
+      );
+    }
+    dispatch(noLoading());
+  });
+}
+
   };
 };
