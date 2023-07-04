@@ -109,9 +109,7 @@ function Officer() {
           ? editOfficerData.password
           : null,
       approved:
-        editOfficerData.approved !== officerItem.approved
-          ? editOfficerData.approved
-          : null,
+        editOfficerData.approved,
     };
   };
 
