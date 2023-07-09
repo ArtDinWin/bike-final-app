@@ -26,6 +26,7 @@ import { updateCaseItem } from "./../../toolkitSliceRedux/asyncActions/updateCas
 import { deleteCaseItem } from "./../../toolkitSliceRedux/asyncActions/deleteCaseItem";
 import { clearModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 import { formatDate } from "./../utils";
+import { addModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 
 function Case() {
   const dispatch = useDispatch();
@@ -45,6 +46,9 @@ function Case() {
   });
   const isAuth = useSelector((state) => {
     return state.isAuth.isAuth;
+  });
+  const isApproved = useSelector((state) => {
+    return state.isAuth.isApproved;
   });
   const isLoading = useSelector((state) => {
     return state.isAuth.isLoading;
@@ -120,7 +124,17 @@ function Case() {
     if (!noEdit) {
       dispatch(updateCaseItem(params.id, objCaseItem()));
     } else {
-      toggleNoEdit();
+      if (isApproved) {
+        toggleNoEdit();
+      } else {
+        dispatch(
+          addModalMessage({
+            type: "notApproved",
+            status: "error",
+            text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+          })
+        );
+      }
     }
   };
 
@@ -144,8 +158,8 @@ function Case() {
       return true;
     } else {
       return !noEdit &&
-      editCaseData.ownerFullName === caseItem.ownerFullName &&
-      editCaseData.licenseNumber === caseItem.licenseNumber &&
+        editCaseData.ownerFullName === caseItem.ownerFullName &&
+        editCaseData.licenseNumber === caseItem.licenseNumber &&
         editCaseData.status === caseItem.status &&
         editCaseData.officer === caseItem.officer &&
         editCaseData.type === caseItem.type &&
@@ -572,13 +586,23 @@ function Case() {
                   <Button
                     type="delete"
                     onClick={() => {
-                      const answer = window.confirm(
-                        "Вы уверены, что хотите удалить это обращение?"
-                      );
-                      if (answer) {
-                        dispatch(deleteCaseItem(params.id));
-                        setIsDisplayModal(true);
+                      if (isApproved) {
+                        const answer = window.confirm(
+                          "Вы уверены, что хотите удалить это обращение?"
+                        );
+                        if (answer) {
+                          dispatch(deleteCaseItem(params.id));
+                        }
+                      } else {
+                        dispatch(
+                          addModalMessage({
+                            type: "notApproved",
+                            status: "error",
+                            text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+                          })
+                        );
                       }
+                      setIsDisplayModal(true);
                     }}
                   >
                     Удалить
@@ -663,6 +687,8 @@ function Case() {
               ? modalImageSuccessful
               : modalMessage.text === "Ошибка запроса: Network Error"
               ? modalImageError1
+              : modalMessage.type === "notApproved"
+              ? modalImageAccessError
               : modalImageError2
           }
           hide={() => setIsDisplayModal(false)}

@@ -15,7 +15,7 @@ export const checkAuth = (tokenTest) => {
     axios
       .get(URL_AUTH, { headers })
       .then((response) => {
-        dispatch(isTrue());
+        dispatch(isTrue(response.data.data.user.approved));
         dispatch(noLoading());
       })
       .catch((error) => {

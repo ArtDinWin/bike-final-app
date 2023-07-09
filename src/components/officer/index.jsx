@@ -22,6 +22,7 @@ import Loading from "./../loading";
 import { useNavigate } from "react-router-dom";
 import Modal from "./../modal";
 import { clearModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
+import { addModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 
 function Officer() {
   const dispatch = useDispatch();
@@ -39,7 +40,9 @@ function Officer() {
   const isAuth = useSelector((state) => {
     return state.isAuth.isAuth;
   });
-
+  const isApproved = useSelector((state) => {
+    return state.isAuth.isApproved;
+  });
   const modalMessage = useSelector((state) => {
     return state.log.modalMessage;
   });
@@ -108,8 +111,7 @@ function Officer() {
         editOfficerData.password !== officerItem.password
           ? editOfficerData.password
           : null,
-      approved:
-        editOfficerData.approved,
+      approved: editOfficerData.approved,
     };
   };
 
@@ -333,13 +335,23 @@ function Officer() {
               <Button
                 type="delete"
                 onClick={() => {
-                  const answer = window.confirm(
-                    "Вы уверены, что хотите удалить этого сотрудника?"
-                  );
-                  if (answer) {
-                    dispatch(deleteOfficer(params.id));
-                    setIsDisplayModal(true);
+                  if (isApproved) {
+                    const answer = window.confirm(
+                      "Вы уверены, что хотите удалить этого сотрудника?"
+                    );
+                    if (answer) {
+                      dispatch(deleteOfficer(params.id));
+                    }
+                  } else {
+                    dispatch(
+                      addModalMessage({
+                        type: "notApproved",
+                        status: "error",
+                        text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+                      })
+                    );
                   }
+                  setIsDisplayModal(true);
                 }}
               >
                 Удалить
@@ -360,7 +372,17 @@ function Officer() {
                   if (!noEdit) {
                     dispatch(updateOfficer(params.id, objOfficer()));
                   } else {
-                    toggleNoEdit();
+                    if (isApproved) {
+                      toggleNoEdit();
+                    } else {
+                      dispatch(
+                        addModalMessage({
+                          type: "notApproved",
+                          status: "error",
+                          text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+                        })
+                      );
+                    }
                   }
                 }}
                 disabled={checkBeforeSave() && !noEdit}
@@ -423,6 +445,8 @@ function Officer() {
               ? modalImageSuccessful
               : modalMessage.text === "Ошибка запроса: Network Error"
               ? modalImageError1
+              : modalMessage.type === "notApproved"
+              ? modalImageAccessError
               : modalImageError2
           }
           goTo={() => {

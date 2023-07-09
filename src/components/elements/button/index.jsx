@@ -9,7 +9,13 @@ const Button = (props) => (
       props.type === "delete" && "delete"
     )}
     onClick={props.onClick}
-    type={props.type === "button" ? "button" : "submit"}
+    type={
+      props.type === "button"
+        ? "button"
+        : props.type === "delete"
+        ? "button"
+        : "submit"
+    }
     form={props.form !== undefined ? props.form : null}
   >
     {props.text}

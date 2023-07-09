@@ -4,17 +4,17 @@ const isAuthSlice = createSlice({
   name: "toolkitIsAuth",
   initialState: {
     isAuth: false,
+    isApproved: false,
     isLoading: true,
   },
   reducers: {
     isFalse(state, action) {
       state.isAuth = false;
+      state.isApproved = false;
     },
     isTrue(state, action) {
       state.isAuth = true;
-    },
-    isToggle(state, action) {
-      state.isAuth = !state.isAuth;
+      state.isApproved = action.payload;
     },
     isLoading(state, action) {
       state.isLoading = true;
@@ -26,5 +26,4 @@ const isAuthSlice = createSlice({
 });
 
 export default isAuthSlice.reducer;
-export const { isFalse, isTrue, isToggle, isLoading, noLoading } =
-  isAuthSlice.actions;
+export const { isFalse, isTrue, isLoading, noLoading } = isAuthSlice.actions;

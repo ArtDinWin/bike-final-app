@@ -33,7 +33,7 @@ export const signIn = (objData) => {
               text: `Авторизация пройдена успешно!`,
             })
           );
-          dispatch(isTrue());
+          dispatch(isTrue(response.data.data.user.approved));
           saveToStorage(response.data.data.token);
         } else {
           dispatch(

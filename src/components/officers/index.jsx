@@ -17,6 +17,7 @@ import Loading from "./../loading";
 import { deleteOfficer } from "./../../toolkitSliceRedux/asyncActions/deleteOfficer";
 import { clearModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 import Button from "./../elements/button";
+import { addModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 
 function Officers() {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ function Officers() {
   // состояние state.isAuth
   const isAuth = useSelector((state) => {
     return state.isAuth.isAuth;
+  });
+  const isApproved = useSelector((state) => {
+    return state.isAuth.isApproved;
   });
   const isLoading = useSelector((state) => {
     return state.isAuth.isLoading;
@@ -133,13 +137,23 @@ function Officers() {
           className="table__delete-td"
           title="Удалить"
           onClick={() => {
-            const answer = window.confirm(
-              "Вы уверены, что хотите удалить этого пользователя?"
-            );
-            if (answer) {
-              dispatch(deleteOfficer(officer._id));
-              setIsDisplayModal(true);
+            if (isApproved) {
+              const answer = window.confirm(
+                "Вы уверены, что хотите удалить этого пользователя?"
+              );
+              if (answer) {
+                dispatch(deleteOfficer(officer._id));
+              }
+            } else {
+              dispatch(
+                addModalMessage({
+                  type: "notApproved",
+                  status: "error",
+                  text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+                })
+              );
             }
+            setIsDisplayModal(true);
           }}
         >
           <MdDeleteForever className="table__delete" />
@@ -430,6 +444,8 @@ function Officers() {
               ? modalImageSuccessful
               : modalMessage.text === "Ошибка запроса: Network Error"
               ? modalImageError1
+              : modalMessage.type === "notApproved"
+              ? modalImageAccessError
               : modalImageError2
           }
           hide={() => setIsDisplayModal(false)}

@@ -32,6 +32,9 @@ function AddOfficer({ propsValue }) {
   const isAuth = useSelector((state) => {
     return state.isAuth.isAuth;
   });
+  const isApproved = useSelector((state) => {
+    return state.isAuth.isApproved;
+  });
   const modalMessage = useSelector((state) => {
     return state.log.modalMessage;
   });
@@ -61,7 +64,7 @@ function AddOfficer({ propsValue }) {
       clientId: propsValue === "sign_up" ? inputData.clientId : null,
       firstName: inputData.firstName ? inputData.firstName : null,
       lastName: inputData.lastName ? inputData.lastName : null,
-      approved: inputData.approved,
+      [isApproved ? "approved" : null]: isApproved ? inputData.approved : null,
     };
   };
 
@@ -219,7 +222,7 @@ function AddOfficer({ propsValue }) {
                   className="add-officer__block-inputs add-officer__items"
                   style={{ marginBottom: "10px" }}
                 >
-                  {propsValue === "sign_up" ? null : (
+                  {propsValue === "sign_up" || !isApproved ? null : (
                     <>
                       <div className="add-officer__input-label">
                         Одобрение

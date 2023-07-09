@@ -22,6 +22,7 @@ import { getOfficers } from "./../../toolkitSliceRedux/asyncActions/getOfficers"
 import { deleteCaseItem } from "./../../toolkitSliceRedux/asyncActions/deleteCaseItem";
 import { clearModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 import { formatDate } from "./../utils";
+import { addModalMessage } from "./../../toolkitSliceRedux/logSliceReducer";
 
 function Cases() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function Cases() {
 
   const isAuth = useSelector((state) => {
     return state.isAuth.isAuth;
+  });
+  const isApproved = useSelector((state) => {
+    return state.isAuth.isApproved;
   });
   const officers = useSelector((state) => {
     return state.officers.officers;
@@ -234,11 +238,22 @@ function Cases() {
         <td
           className="table__delete-td"
           onClick={() => {
-            const answer = window.confirm(
-              "Вы уверены, что хотите удалить это обращение?"
-            );
-            if (answer) {
-              dispatch(deleteCaseItem(caseItem._id));
+            if (isApproved) {
+              const answer = window.confirm(
+                "Вы уверены, что хотите удалить это обращение?"
+              );
+              if (answer) {
+                dispatch(deleteCaseItem(caseItem._id));
+                setIsDisplayModal(true);
+              }
+            } else {
+              dispatch(
+                addModalMessage({
+                  type: "notApproved",
+                  status: "error",
+                  text: "Вы неподтвержденный сотрудник. У вас нет прав на это действие.",
+                })
+              );
               setIsDisplayModal(true);
             }
           }}
@@ -579,7 +594,6 @@ function Cases() {
   );
 
   const renderIsAuthFalse = <AccessError />;
-
   return (
     <section className={classNames("cases", "plr-30")}>
       <div className={classNames("cases__wrapper", "block-center")}>
@@ -624,6 +638,8 @@ function Cases() {
               ? modalImageSuccessful
               : modalMessage.text === "Ошибка запроса: Network Error"
               ? modalImageError1
+              : modalMessage.type === "notApproved"
+              ? modalImageAccessError
               : modalImageError2
           }
           status={modalMessage.status}
